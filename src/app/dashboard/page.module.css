@@ -1,0 +1,86 @@
+.hero {
+  padding: 80px 0 64px; /* Generous vertical rhythm */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 40px;
+}
+
+.heroText {
+  max-width: 800px;
+}
+
+.heroTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -2.125px;
+}
+
+.fire {
+  font-size: 54px;
+}
+
+.heroSub {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.125px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* Stats row */
+.heroStats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 48px;
+  box-shadow: var(--shadow-card);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.statValue {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.statDivider {
+  width: 1px;
+  height: 48px;
+  background: var(--border);
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 48px 0 32px; gap: 32px; }
+  .heroTitle { font-size: 40px; letter-spacing: -0.625px; flex-direction: column; }
+  .heroSub { font-size: 16px; letter-spacing: normal; }
+  .heroStats { width: 100%; flex-direction: column; gap: 16px; padding: 24px; }
+  .statDivider { height: 1px; width: 48px; }
+}

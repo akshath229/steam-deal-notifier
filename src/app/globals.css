@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ─── Notion Design Tokens ─────────────────────────────────────────────────── */
+:root {
+  /* Colors */
+  --bg-primary:      #ffffff;
+  --bg-secondary:    #f6f5f4; /* Warm White */
+  --bg-dark:         #31302e; /* Warm Dark */
+  --bg-elevated:     #ffffff;
+  --border:          rgba(0, 0, 0, 0.1); /* Whisper Border */
+  
+  /* Feature Section Backgrounds */
+  --bg-alternating:  var(--bg-secondary);
+
+  /* Primary Interactive / Accent */
+  --accent:          #0075de; /* Notion Blue */
+  --accent-hover:    #005bab; /* Active Blue */
+  
+  /* Semantic */
+  --deal-green:      #1aae39;
+  --deal-green-bg:   #e8fee8; /* Tinted Green for deals */
+  --badge-blue-bg:   #f2f9ff;
+  --badge-blue-text: #097fe8;
+  --focus-ring:      #097fe8;
+
+  /* Typography Colors */
+  --text-primary:    rgba(0, 0, 0, 0.95); /* Notion Black */
+  --text-secondary:  #615d59; /* Warm Gray 500 */
+  --text-muted:      #a39e98; /* Warm Gray 300 */
+
+  /* Shadows - Layered Sub-0.05 opacity */
+  --shadow-card:     rgba(0,0,0,0.04) 0px 4px 18px, rgba(0,0,0,0.027) 0px 2.025px 7.84688px, rgba(0,0,0,0.02) 0px 0.8px 2.925px, rgba(0,0,0,0.01) 0px 0.175px 1.04062px;
+  --shadow-deep:     rgba(0,0,0,0.01) 0px 1px 3px, rgba(0,0,0,0.02) 0px 3px 7px, rgba(0,0,0,0.02) 0px 7px 15px, rgba(0,0,0,0.04) 0px 14px 28px, rgba(0,0,0,0.05) 0px 23px 52px;
+  --shadow-focus:    0 0 0 2px #ffffff, 0 0 0 4px var(--focus-ring), rgba(0,0,0,0.02) 0 4px 8px; /* Focus Level 200 equivalent */
+
+  /* Border Radius */
+  --radius-xs:      4px;
+  --radius-sm:      8px;
+  --radius-md:      12px;
+  --radius-lg:      16px;
+  --radius-pill:    9999px;
+
+  /* Transitions */
+  --transition:     all 0.2s ease-in-out;
+}
+
+/* ─── Reset & Base ──────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', -apple-system, system-ui, Segoe UI, Helvetica, Apple Color Emoji, Arial, Segoe UI Emoji, Segoe UI Symbol;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  font-weight: 400;
+  min-height: 100vh;
+}
+
+/* ─── Typography Typography Rules ────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  font-feature-settings: "lnum" 1, "locl" 1;
+}
+
+.display-hero {
+  font-size: 64px; /* 4.00rem */
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -2.125px;
+}
+
+.display-secondary {
+  font-size: 54px; /* 3.38rem */
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -1.875px;
+}
+
+.section-heading {
+  font-size: 48px; /* 3.00rem */
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -1.5px;
+}
+
+.sub-heading-large {
+  font-size: 40px; /* 2.50rem */
+  font-weight: 700;
+  line-height: 1.50;
+  letter-spacing: normal;
+}
+
+h1, .sub-heading {
+  font-size: 26px; /* 1.63rem */
+  font-weight: 700;
+  line-height: 1.23;
+  letter-spacing: -0.625px;
+}
+
+h2, .card-title {
+  font-size: 22px; /* 1.38rem */
+  font-weight: 700;
+  line-height: 1.27;
+  letter-spacing: -0.25px;
+}
+
+.body-large {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.40;
+  letter-spacing: -0.125px;
+}
+
+.body {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.50;
+}
+
+.body-semibold {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.50;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ─── Layout ────────────────────────────────────────────────────────────────── */
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.page-content {
+  padding-top: 80px; /* Generous top padding */
+  padding-bottom: 80px;
+  min-height: 100vh;
+}
+
+.section-alt {
+  background-color: var(--bg-alternating);
+  padding: 80px 0;
+}
+
+/* ─── Cards ─────────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-deep);
+}
+
+/* ─── Buttons ───────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: inherit;
+  font-size: 15px; /* Nav / Button size */
+  font-weight: 600;
+  line-height: 1.33;
+  padding: 8px 16px;
+  border-radius: var(--radius-xs);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.15s ease, box-shadow 0.15s ease;
+  text-decoration: none !important; /* Overrides global link hover */
+}
+
+.btn:active {
+  transform: scale(0.96); /* Notion uses scale(0.9) approx */
+}
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-secondary {
+  background: rgba(0,0,0,0.05); /* Translucent warm gray */
+  color: var(--text-primary);
+}
+.btn-secondary:hover {
+  background: rgba(0,0,0,0.08); /* Darkens slightly on hover */
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+}
+.btn-ghost:hover {
+  background: rgba(0,0,0,0.04);
+}
+
+.btn-danger {
+  background: rgba(221, 91, 0, 0.1);
+  color: #dd5b00; /* Overridden to Orange warning state per spec */
+}
+.btn-danger:hover {
+  background: rgba(221, 91, 0, 0.15);
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.btn:disabled {
+  background: var(--text-muted);
+  color: #ffffff;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ─── Inputs ────────────────────────────────────────────────────────────────── */
+.input {
+  width: 100%;
+  padding: 6px 12px;
+  background: var(--bg-primary);
+  border: 1px solid #dddddd;
+  border-radius: var(--radius-xs);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 16px;
+  transition: var(--transition);
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--focus-ring); /* Focus Blue ring */
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ─── Badges ────────────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.125px; /* Badge micro-tracking */
+}
+
+.badge-deal {
+  background: var(--deal-green-bg);
+  color: var(--deal-green);
+}
+
+.badge-aaa {
+  background: var(--badge-blue-bg);
+  color: var(--badge-blue-text);
+}
+
+/* ─── Grid ──────────────────────────────────────────────────────────────────── */
+.deals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px; /* Slightly wider spacing for Notion grid */
+  padding: 24px 0;
+}
+
+/* ─── Section Header ────────────────────────────────────────────────────────── */
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 48px 0 16px; /* Generous breathing room */
+  margin-bottom: 8px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-primary);
+  font-size: 26px; /* Sub-heading */
+  font-weight: 700;
+  letter-spacing: -0.625px;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 8px;
+}
+
+/* ─── Empty State ───────────────────────────────────────────────────────────── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 80px 24px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  opacity: 0.6;
+}
+
+.empty-state h3 {
+  color: var(--text-primary);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* ─── Loading skeleton ──────────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-color: var(--bg-elevated); }
+  50%  { background-color: var(--bg-secondary); }
+  100% { background-color: var(--bg-elevated); }
+}
+
+.skeleton {
+  background-color: var(--bg-elevated);
+  animation: shimmer 2s infinite ease-in-out;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+/* ─── Modal Overlay ─────────────────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(49, 48, 46, 0.4); /* Warm Dark with opacity */
+  backdrop-filter: blur(2px); /* Softer blur */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 16px;
+  animation: fadeIn 0.15s ease;
+}
+
+.modal-box {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-deep);
+  padding: 32px;
+  width: 100%;
+  max-width: 440px;
+  animation: slideUp 0.2s ease;
+}
+
+/* ─── Toggle ────────────────────────────────────────────────────────────────── */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.toggle input { opacity: 0; width: 0; height: 0; }
+
+.toggle-track {
+  position: absolute;
+  inset: 0;
+  background: var(--text-muted);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.toggle input:checked + .toggle-track {
+  background: var(--accent);
+}
+
+.toggle-track::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 2px;
+  top: 2px;
+  background: white;
+  border-radius: 50%;
+  transition: var(--transition);
+  box-shadow: rgba(0,0,0,0.1) 0px 1px 2px;
+}
+
+.toggle input:checked + .toggle-track::after {
+  transform: translateX(18px);
+}
+.toggle input:focus-visible + .toggle-track {
+  box-shadow: var(--shadow-focus);
+}
+
+/* ─── Animations ────────────────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(16px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.3); }
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .page-wrapper { padding: 0 16px; }
+  .deals-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .modal-box { padding: 24px; }
+  
+  .display-hero {
+    font-size: 40px;
+    letter-spacing: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .deals-grid { grid-template-columns: 1fr; }
+  .display-hero {
+    font-size: 26px;
+    letter-spacing: -0.625px;
+  }
+}

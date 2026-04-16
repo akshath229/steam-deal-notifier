@@ -1,0 +1,150 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  flex-direction: row;
+}
+
+.item.priceHit {
+  border-color: rgba(52, 211, 153, 0.3);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(52, 211, 153, 0.15);
+}
+
+.imageLink {
+  flex-shrink: 0;
+  display: block;
+  text-decoration: none;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 120px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.imageLink:hover .image {
+  transform: scale(1.05);
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.15s ease;
+}
+
+.title:hover {
+  color: var(--text-accent);
+}
+
+.badges {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.hitBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--deal-green-bg);
+  color: var(--deal-green);
+  white-space: nowrap;
+  animation: pulse-glow 2s ease infinite;
+}
+
+.prices {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.priceGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.price {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.hitPrice {
+  color: var(--deal-green);
+}
+
+.target {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-accent);
+}
+
+.original {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.divider {
+  width: 1px;
+  height: 32px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .item { flex-direction: column; align-items: flex-start; }
+  .imageWrapper { width: 100%; height: 120px; }
+  .actions { flex-direction: row; width: 100%; }
+  .actions .btn { flex: 1; }
+  .prices { flex-wrap: wrap; gap: 10px; }
+}

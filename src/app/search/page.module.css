@@ -1,0 +1,43 @@
+.header {
+  padding: 40px 0 32px;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.tips {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.tip {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.tipIcon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.tip strong {
+  color: var(--text-primary);
+}
+
+@media (max-width: 600px) {
+  .tips { flex-direction: column; }
+}
