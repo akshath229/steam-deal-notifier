@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 import { Navbar } from '@/components/Navbar'
-
 export const metadata: Metadata = {
   title: {
     default: 'SteamWatch — Game Deal Tracker',
@@ -30,6 +30,7 @@ export default function RootLayout({
         <main className="page-content">
           {children}
         </main>
+        <Analytics />
       </body>
     </html>
   )
