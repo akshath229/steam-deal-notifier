@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Steam Deal Tracker
 
-## Getting Started
+A modern, fast, and minimalistic game deal tracking application that monitors Steam prices and sends automated Discord notifications when target prices are met. Built with a Notion-inspired warm, aesthetic design system.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Live Dashboard:** Discover featured deals on Steam and explore trending games.
+- **Wishlist Tracking:** Add specific games to your tracker with a target price drop threshold.
+- **Discord Notifications:** Receive automated alerts in your Discord server when a tracked game hits your target price.
+- **Currency Support:** View game deals in USD or INR formats.
+- **Background Process:** Integrated with Vercel Cron to automatically survey the Steam Web API for regular updates.
+- **Notion-Inspired Aesthetic:** A stylish interface utilizing warm neutral color palettes, clean fonts, and sleek component designs.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework:** [Next.js 16 (App Router)](https://nextjs.org/)
+- **Database & Authentication:** [Supabase](https://supabase.com/)
+- **Client Data Fetching:** [SWR](https://swr.vercel.app/)
+- **Styling:** Custom Vanilla CSS for the Notion-like aesthetic
+- **External API:** [Steam Web API](https://steamcommunity.com/dev)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Prerequisites
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Before starting, make sure you have:
+1. **Supabase Project:** Created at Supabase Dashboard.
+2. **Steam API Key:** Acquired from the [Steam Developer Portal](https://steamcommunity.com/dev/apikey).
+3. **Discord Webhook URL:** Optional for testing default push alerts (via `Server Settings` -> `Integrations` -> `Webhooks`).
